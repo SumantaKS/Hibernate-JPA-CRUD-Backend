@@ -13,6 +13,7 @@ public interface StudentDAO {
     Student findById(Integer id);
     //For reading multiple results
     List<Student> findAll();
+    List<Student> findByLastName(String lastName);
 
     //U of CRUD
 
