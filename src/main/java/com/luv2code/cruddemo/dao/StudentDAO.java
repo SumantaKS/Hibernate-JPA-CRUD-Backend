@@ -16,6 +16,11 @@ public interface StudentDAO {
     List<Student> findByLastName(String lastName);
 
     //U of CRUD
+    //More like "Sync" the database with the Entity Class of Java
     void update(Student theStudent);
+
     //D of CRUD
+    void delete(Integer id);
+    //to delete all
+    Integer deleteAll();
 }

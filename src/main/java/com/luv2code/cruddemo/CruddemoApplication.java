@@ -33,10 +33,13 @@ public class CruddemoApplication {
 
 			//findByLastName(studentDAO);
 
-			updateStudent(studentDAO);
+			//updateStudent(studentDAO);
+
+			//deleteById(studentDAO);
+
+			deleteAllStudents(studentDAO);
 		};
 	}
-
 
 	void createStudent(StudentDAO studentDAO){
 
@@ -111,4 +114,17 @@ public class CruddemoApplication {
 		studentDAO.update(student);
 		System.out.println(student);
 	}
+
+	private void deleteById(StudentDAO studentDAO) {
+		Integer id = 1;
+		System.out.println("Deleting Student with ID: " + id);
+		studentDAO.delete(id);
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting all Students...");
+		Integer numOfRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Number of rows deleted: " + numOfRowsDeleted);
+	}
+
 }
