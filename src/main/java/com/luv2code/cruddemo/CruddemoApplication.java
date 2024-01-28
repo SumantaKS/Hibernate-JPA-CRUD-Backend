@@ -22,13 +22,21 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		//below is custom code for CommandLineRunner interface provided by Spring
 		return runner -> {
+
 			//createStudent(studentDAO);
+
 			//createMultipleStudents(studentDAO);
+
 			//readStudent(studentDAO);
+
 			//queryForStudents(studentDAO);
-			findByLastName(studentDAO);
+
+			//findByLastName(studentDAO);
+
+			updateStudent(studentDAO);
 		};
 	}
+
 
 	void createStudent(StudentDAO studentDAO){
 
@@ -88,5 +96,19 @@ public class CruddemoApplication {
 			System.out.println(student);
 		}
 
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+
+		Integer studentId = 1;
+		Student student = studentDAO.findById(studentId);
+		System.out.println("Finding student by ID.....");
+
+		System.out.println("Making changes.....");
+		student.setFirstName("Sully");
+
+		System.out.println("Updating the student in the database...");
+		studentDAO.update(student);
+		System.out.println(student);
 	}
 }

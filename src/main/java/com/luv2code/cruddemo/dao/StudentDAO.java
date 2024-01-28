@@ -16,6 +16,6 @@ public interface StudentDAO {
     List<Student> findByLastName(String lastName);
 
     //U of CRUD
-
+    void update(Student theStudent);
     //D of CRUD
 }
