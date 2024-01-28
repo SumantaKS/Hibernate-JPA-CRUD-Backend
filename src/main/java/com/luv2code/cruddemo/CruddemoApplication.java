@@ -19,8 +19,26 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		//below is custom code for CommandLineRunner interface provided by Spring
 		return runner -> {
-			createStudent(studentDAO);
+			//createStudent(studentDAO);
+			createMultipleStudents(studentDAO);
 		};
+	}
+
+	private void createMultipleStudents(StudentDAO studentDAO) {
+		System.out.println("Creating multiple student......");
+		Student theStudent1 = new Student("Sumanta", "Singh", "singhsumanta@gmail.com");
+		Student theStudent2 = new Student("Nathan", "Drake", "athief@gmail.com");
+		Student theStudent3 = new Student("Sam", "Drake", "bigbro@gmail.com");
+
+		System.out.println("Saving the students.....");
+		studentDAO.save(theStudent1);
+		studentDAO.save(theStudent2);
+		studentDAO.save(theStudent3);
+
+		System.out.println("Getting student ids....");
+		System.out.println("Student ID " + theStudent1.getId() + ": " + theStudent1.getFirstName() + " " + theStudent1.getLastName() );
+		System.out.println("Student ID " + theStudent2.getId() + ": " + theStudent2.getFirstName() + " " + theStudent2.getLastName() );
+		System.out.println("Student ID " + theStudent3.getId() + ": " + theStudent3.getFirstName() + " " + theStudent3.getLastName() );
 	}
 
 	void createStudent(StudentDAO studentDAO){
