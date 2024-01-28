@@ -1,4 +1,4 @@
-# Hibernate/JPA CRUD (Backend)
+# Hibernate/JPA CRUD (Backend) (Spring 6 / Spring Boot 3 / Maven)
 
 - **Description**: A backend application using Hibernate/JPA for CRUD operations on student data.
 

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.sql.Struct;
+import java.util.List;
 
 @SpringBootApplication
 public class CruddemoApplication {
@@ -23,7 +24,8 @@ public class CruddemoApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 			//createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
+			queryForStudents(studentDAO);
 		};
 	}
 
@@ -57,14 +59,26 @@ public class CruddemoApplication {
 	}
 
 	private void readStudent(StudentDAO studentDAO){
+
 		System.out.println("Creating the student....");
 		Student theStudent4 = new Student("Lara", "Croft", "lara@gmail.com");
+
 		System.out.println("Saving the student....");
 		studentDAO.save(theStudent4);
+
 		System.out.println("Getting id.... ID: " + theStudent4.getId());
 		Integer studentId = theStudent4.getId();
+
 		System.out.println("Getting the student by ID....");
 		Student student = studentDAO.findById(studentId);
 		System.out.println(student.toString());
 	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+		List<Student> students = studentDAO.findAll();
+		for(Student student : students){
+			System.out.println(student);
+		}
+	}
+
 }
