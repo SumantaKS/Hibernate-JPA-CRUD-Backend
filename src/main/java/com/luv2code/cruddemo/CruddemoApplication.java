@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.sql.Struct;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -20,8 +22,21 @@ public class CruddemoApplication {
 		//below is custom code for CommandLineRunner interface provided by Spring
 		return runner -> {
 			//createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			//createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	void createStudent(StudentDAO studentDAO){
+
+		System.out.println("Creating student......");
+		Student theStudent = new Student("Sumanta", "Singh", "singhsumanta@gmail.com");
+
+		System.out.println("Saving student.....");
+		studentDAO.save(theStudent);
+
+		System.out.println("Getting student id.... Student ID: " + theStudent.getId());
+
 	}
 
 	private void createMultipleStudents(StudentDAO studentDAO) {
@@ -41,15 +56,15 @@ public class CruddemoApplication {
 		System.out.println("Student ID " + theStudent3.getId() + ": " + theStudent3.getFirstName() + " " + theStudent3.getLastName() );
 	}
 
-	void createStudent(StudentDAO studentDAO){
-
-		System.out.println("Creating student......");
-		Student theStudent = new Student("Sumanta", "Singh", "singhsumanta@gmail.com");
-
-		System.out.println("Saving student.....");
-		studentDAO.save(theStudent);
-
-		System.out.println("Getting student id.... Student ID: " + theStudent.getId());
-
+	private void readStudent(StudentDAO studentDAO){
+		System.out.println("Creating the student....");
+		Student theStudent4 = new Student("Lara", "Croft", "lara@gmail.com");
+		System.out.println("Saving the student....");
+		studentDAO.save(theStudent4);
+		System.out.println("Getting id.... ID: " + theStudent4.getId());
+		Integer studentId = theStudent4.getId();
+		System.out.println("Getting the student by ID....");
+		Student student = studentDAO.findById(studentId);
+		System.out.println(student.toString());
 	}
 }
