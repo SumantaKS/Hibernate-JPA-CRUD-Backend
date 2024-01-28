@@ -16,10 +16,10 @@ public class CruddemoApplication {
 
 	//below runs after the app starts
 	@Bean
-	public CommandLineRunner commandLineRunner(String[] args){
+	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		//below is custom code for CommandLineRunner interface provided by Spring
 		return runner -> {
-			createStudent(StudentDAO studentDAO);
+			createStudent(studentDAO);
 		};
 	}
 
