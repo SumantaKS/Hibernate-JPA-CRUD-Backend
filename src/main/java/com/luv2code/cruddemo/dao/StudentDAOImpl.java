@@ -17,7 +17,7 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     @Override
-    @Transactional //this annotation is needed since we are updating the database
+    @Transactional //this annotation is needed since we are updating or modifying the database. This annotation is not needed for queries
     public void save(Student theStudent) {
         entityManager.persist(theStudent);
     }

@@ -1,4 +1,4 @@
-# Hibernate/JPA CRUD
+# Hibernate/JPA CRUD (Backend)
 
 - **Description**: A backend application using Hibernate/JPA for CRUD operations on student data.
 
