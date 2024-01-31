@@ -1,8 +1,11 @@
 # Hibernate/JPA CRUD (Backend) (Spring 6 / Spring Boot 3 / Maven)
 
-- **Description**: A backend application using Hibernate/JPA for CRUD operations on student data.
+- **Description**:
+- This small project serves as the foundation for another project
+- Please check the readme.md of said project: https://github.com/SumantaKS/REST-API-with-CRUD-Spring-Boot
+- Hibernate Java ORM framework is used to implement the specifications of JPA.
 
-- **Architecture Diagram**: CRUD App <--> Student DAO <--> JPA Entity Manager <--> Data Source <--> Database
+- **Architecture Diagram**: CRUD App <--> Entity DAO <--> JPA Entity Manager <--> Data Source <--> Database
 
 - **Usage**:
   - Uses a Student DAO for database interactions.
