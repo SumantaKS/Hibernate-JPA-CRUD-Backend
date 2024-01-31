@@ -1,6 +1,5 @@
 # Hibernate/JPA CRUD (Backend) (Spring 6 / Spring Boot 3 / Maven)
-
-- **Description**:
+**Description**:
 - This small project serves as the foundation for another project
 - Please check the readme.md of said project: https://github.com/SumantaKS/REST-API-with-CRUD-Spring-Boot
 - Hibernate Java ORM framework is used to implement the specifications of JPA.
